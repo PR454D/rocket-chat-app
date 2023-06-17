@@ -45,6 +45,6 @@ fn rocket() -> _ {
     rocket::build()
         .manage(channel::<Message>(1024).0)
         .mount("/check", routes![check])
-        .mount("/", routes![post,events])
+        .mount("/chat", routes![post,events])
         .mount("/", FileServer::from(relative!("static")))
 }
